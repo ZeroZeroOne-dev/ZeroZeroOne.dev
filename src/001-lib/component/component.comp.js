@@ -1,7 +1,6 @@
 export class Component extends HTMLElement {
     shadow;
     styleSheetPath;
-    state = {};
 
     constructor(
         styleSheet = undefined,
@@ -45,18 +44,6 @@ export class Component extends HTMLElement {
         const template = await response.text();
         this.shadow.innerHTML = template;
 
-    }
-
-    setState(newState) {
-        Object.entries(newState)
-            .forEach(([key, value]) => {
-                this.state[key] = this.#isObject(this.state[key]) &&
-                    this.#isObject(value) ? { ...this.state[key], ...value } : value;
-            });
-    }
-
-    #isObject(obj) {
-        return Object.prototype.toString.call(obj) === '[object Object]';
     }
 
     appendChild(child) {
