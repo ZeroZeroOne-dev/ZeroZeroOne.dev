@@ -1,16 +1,18 @@
 export class Component extends HTMLElement {
-    shadow;
-
+    #shadow;
     #styleSheetPath;
     #templatePath;
 
-    constructor(
+    /** @type {HTMLDivElement} */
+    #container;
+
+    constructor({
         styleSheet = undefined,
         template = undefined
-    ) {
+    } = {}) {
         super();
 
-        this.shadow = this.attachShadow({ mode: 'open' });
+        this.#shadow = this.attachShadow({ mode: 'open' });
 
         this.#styleSheetPath = styleSheet;
         this.#templatePath = template;
@@ -33,23 +35,33 @@ export class Component extends HTMLElement {
 
         const style = document.createElement('style');
         style.innerHTML = imports;
-        this.shadow.appendChild(style);
+        this.#shadow.appendChild(style);
     }
 
     async #makeContainer() {
         this.#setStyleSheet();
 
+        this.#container = document.createElement('div');
+        this.#shadow.appendChild(this.#container);
+
         if (this.#templatePath !== undefined) {
             const response = await fetch(this.#templatePath);
             const template = await response.text();
-            this.shadow.innerHTML += template;
+            this.#container.innerHTML += template;
         }
 
-        this.init();
+        setTimeout(() => {
+            this.init();
+        }, 0);
     }
 
+    get container() {
+        return this.#container
+    }
+
+    /** @returns {HTMLElement} */
     getChild(selector) {
-        return this.shadow.querySelector(selector);
+        return this.#container.querySelector(selector);
     }
 
     init() { }
