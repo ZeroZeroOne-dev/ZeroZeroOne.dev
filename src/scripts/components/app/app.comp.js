@@ -4,14 +4,9 @@ export class AppComponent extends Component {
 
     constructor() {
         super(
-            'scripts/components/app/app.comp.css'
+            'scripts/components/app/app.comp.css',
+            'scripts/components/app/app.comp.html'
         );
-
-        this.draw();
-    }
-
-    draw(){
-        this.innerHTML = "<h1>Hello World</h1>"
     }
 
 }
