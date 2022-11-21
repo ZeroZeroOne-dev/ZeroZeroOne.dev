@@ -40,7 +40,7 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.SSH_KEY }}
           passphrase: ${{ secrets.SSH_KEY_PW }}
-          script: bash ~/scripts/smets.dev/deploy_smets.sh
+          script: bash ~/scripts/zerozeroone.dev/deploy_zerozeroone.dev.sh
         
           
       
