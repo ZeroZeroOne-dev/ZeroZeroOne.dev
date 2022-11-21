@@ -1,0 +1,9 @@
+html{
+    height: 100%;
+}
+
+body {
+    background-image: url('/images/logo.svg');
+    background-repeat: no-repeat;
+    background-position: center center;
+}
