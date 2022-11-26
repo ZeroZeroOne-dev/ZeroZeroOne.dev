@@ -1,6 +1,7 @@
 import { Component } from "../../../001-lib/component/component.comp.js";
 import { RoutingComponent } from "../../../001-lib/routing/routing.comp.js";
-import { ProjectsComponent } from "../projects/projects.comp.js";
+import { NavListComponent } from "../nav-list/nav-list.comp.js";
+import { WindowComponent } from "../window/window.comp.js";
 
 export class AppComponent extends Component {
 
@@ -10,14 +11,14 @@ export class AppComponent extends Component {
             template: 'scripts/components/app/app.comp.html'
         });
 
-        RoutingComponent.setRouteMap({
-            '#\/projects': {
-                component: ProjectsComponent
-            },
-            '': {
-                redirect: '/projects'
-            }
-        });
+        // RoutingComponent.setRouteMap({
+        //     '#\/projects': {
+        //         component: ProjectsComponent
+        //     },
+        //     '': {
+        //         redirect: '/projects'
+        //     }
+        // });
     }
 
 }

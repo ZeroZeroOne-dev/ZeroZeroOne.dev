@@ -1,3 +1,23 @@
-h1 {
-    color: red;
+.main {
+    width: 100%;
+    height: calc(100vh - 16px);
+    display: flex;
+    justify-content: space-evenly;
+
+    perspective: 500px;
+}
+
+.main * {
+    width: 100%;
+    height: 100%;
+}
+
+.left {
+    transform-origin: bottom left;
+    transform: rotateY(10deg);
+}
+
+.right {
+    transform-origin: bottom right;
+    transform: rotateY(-10deg);
 }

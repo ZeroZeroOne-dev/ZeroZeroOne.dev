@@ -1,0 +1,30 @@
+.root {
+    --window-border: 1px solid #d3d3d3;
+
+    height: 100%;
+    width: 100%;
+
+    border: var(--window-border);
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+
+    background-color: #202020;
+}
+
+.header {
+    border-bottom: var(--window-border);
+}
+
+.header h1 {
+    margin-left: 10px;
+}
+
+.list {
+    flex-grow: 1;
+
+    padding: 0 10px 0 10px;
+
+    overflow-y: scroll;
+}
