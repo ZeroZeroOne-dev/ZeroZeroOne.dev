@@ -1,25 +1,43 @@
 import { Component } from "../../../001-lib/component/component.comp.js";
+import { RoutingComponent } from "../../../001-lib/routing/routing.comp.js";
+import { RouteMatchedEvent } from "../../../001-lib/routing/routing.events.js";
+import { ProjectComponent } from "../project/project.comp.js";
 
 export class WindowComponent extends Component {
 
-    constructor(){
+    constructor() {
         super({
             styleSheet: 'scripts/components/window/window.comp.css',
             template: 'scripts/components/window/window.comp.html'
-        })
+        });
     }
 
-    init(){
+    init() {
+
+        /** @type {RoutingComponent} */
+        const router = this.getChild('lib-routing-001');
+        router.addEventListener(RouteMatchedEvent.Key, (e) => {
+            this.show();
+            console.log(e);
+        });
+        router.setRouteMap({
+            '#\/projects\/(\\d)+': {
+                component: ProjectComponent,
+                params: (matches) => [matches[1]]
+            }
+        });
+
         this.getChild('.close')
-            .addEventListener('click', () => this.close());  
+            .addEventListener('click', () => this.close());
     }
 
-    show(){
+    show() {
         this.root.style = 'visibility: visible;'
     }
 
-    close(){
+    close() {
         this.root.style = 'visibility: hidden;'
+        window.location.hash = '';
     }
 
 }

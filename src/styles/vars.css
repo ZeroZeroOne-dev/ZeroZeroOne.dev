@@ -1,0 +1,5 @@
+@import url('../001-lib/style/vars.css');
+
+:host,:root {
+    --window-border: 1px solid var(--text-color);
+}

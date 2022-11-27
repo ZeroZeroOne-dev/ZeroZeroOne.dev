@@ -1,7 +1,7 @@
 .root {
     --window-border: 1px solid #d3d3d3;
 
-    /* visibility: hidden; */
+    visibility: hidden;
 
     position: absolute;
     left: 15%;
@@ -16,6 +16,8 @@
     border-radius: 10px;
 
     background-color: #202020;
+
+    box-shadow: 10px 10px 20px black;
 }
 
 .header {
