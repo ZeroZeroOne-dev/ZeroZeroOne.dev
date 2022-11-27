@@ -1,4 +1,5 @@
 import { Component } from "../../../001-lib/component/component.comp.js";
+import { InitService } from "../../services/init.service.js";
 import { NavListComponent } from "../nav-list/nav-list.comp.js";
 import { WindowComponent } from "../window/window.comp.js";
 
@@ -11,5 +12,8 @@ export class AppComponent extends Component {
         });
     }
 
+    async beforeAppend() {
+        await InitService.init();
+    }
 }
 customElements.define('app-001', AppComponent);

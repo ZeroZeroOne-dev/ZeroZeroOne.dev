@@ -16,12 +16,11 @@ export class WindowComponent extends Component {
 
         /** @type {RoutingComponent} */
         const router = this.getChild('lib-routing-001');
-        router.addEventListener(RouteMatchedEvent.Key, (e) => {
+        router.addEventListener(RouteMatchedEvent.Key, () => {
             this.show();
-            console.log(e);
         });
         router.setRouteMap({
-            '#\/projects\/(\\d)+': {
+            '#\/projects\/(\\S+)': {
                 component: ProjectComponent,
                 params: (matches) => [matches[1]]
             }

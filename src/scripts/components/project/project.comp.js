@@ -1,4 +1,5 @@
 import { Component } from "../../../001-lib/component/component.comp.js";
+import { ItemsService } from "../../services/items.service.js"
 
 export class ProjectComponent extends Component {
 
@@ -10,8 +11,11 @@ export class ProjectComponent extends Component {
         this.#id = id;
     }
 
-    init() {
-        this.root.innerHTML = `<h2>sup ${this.#id}</h2>`;
+    async init() {
+
+        const body = await ItemsService.ProjectService.getContent(this.#id);
+
+        this.root.innerHTML = body;
     }
 }
 customElements.define('project-001', ProjectComponent);
