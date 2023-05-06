@@ -1,0 +1,26 @@
+[
+    {
+        "location": 1,
+        "id": "zerozeroone.dev",
+        "title": "ZeroZeroOne.dev (this website)",
+        "summary": "A no-framework, modern javscript, single page website"
+    },
+    {
+        "location": 2,
+        "id": "youtube-live",
+        "title": "Youtube-Live",
+        "summary": "A browser addon/extension to list your favorite youtube streamers that are currently live (WIP)"
+    },
+    {
+        "location": 3,
+        "id": "00key",
+        "title": "00Key",
+        "summary": "A teensy powered 75% mechanical keyboard; A first excursion into the hardware space"
+    },
+    {
+        "location": 4,
+        "id": "next-owl",
+        "title": "Next-OWL",
+        "summary": "A website to see upcoming overwatch league games with dynamic countdowns"
+    }
+]
