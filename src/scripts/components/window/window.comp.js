@@ -5,6 +5,8 @@ import { ProjectComponent } from "../project/project.comp.js";
 
 export class WindowComponent extends Component {
 
+    #titleField;
+
     constructor() {
         super({
             styleSheet: 'scripts/components/window/window.comp.css',
@@ -14,20 +16,23 @@ export class WindowComponent extends Component {
 
     init() {
 
+        this.#titleField = this.getChild('.title');
+
+        this.getChild('.close')
+        .addEventListener('click', () => this.close());
+
         /** @type {RoutingComponent} */
         const router = this.getChild('lib-routing-001');
-        router.addEventListener(RouteMatchedEvent.Key, () => {
+        router.addEventListener(RouteMatchedEvent.Key, (event) => {
             this.show();
         });
         router.setRouteMap({
             '#\/projects\/(\\S+)': {
                 component: ProjectComponent,
-                params: (matches) => [matches[1]]
+                params: (matches) => [matches[1], this.setTitle.bind(this)]
             }
         });
-
-        this.getChild('.close')
-            .addEventListener('click', () => this.close());
+       
     }
 
     show() {
@@ -37,6 +42,10 @@ export class WindowComponent extends Component {
     close() {
         this.root.style = 'visibility: hidden;'
         window.location.hash = '';
+    }
+
+    setTitle(title){
+        this.#titleField.textContent = title;
     }
 
 }

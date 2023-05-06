@@ -5,7 +5,6 @@ import { NavItemComponent } from "../nav-item/nav-item.js";
 export class NavListComponent extends Component {
 
     #category;
-    #itemsService;
 
     constructor() {
         super({
@@ -14,7 +13,6 @@ export class NavListComponent extends Component {
         });
 
         this.#category = this.getAttribute('data-category');
-        this.#itemsService = new ItemsService(this.#category);
     }
 
     async init() {
@@ -22,7 +20,7 @@ export class NavListComponent extends Component {
 
         const list = this.getChild('.list');
 
-        index.forEach(item => {
+        Object.values(index).forEach(item => {
             list.appendChild(new NavItemComponent(this.#category, item));
         });
     }

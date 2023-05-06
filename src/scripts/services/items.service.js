@@ -40,12 +40,22 @@ class ItemService {
         return await response.json();
     }
 
-    async getContent(id) {
+    async getItem(id) {
 
-        const index = this.#index[id];
+        const entry = this.getEntry(id);
 
-        var response = await fetch(`data/${this.#category}/${index.index}/body.html`);
-        return await response.text();
+        var response = await fetch(`data/${this.#category}/${entry.location}/body.html`);
+
+        const body = await response.text();
+
+        return {
+            entry,
+            body
+        };
+    }
+
+    getEntry(id){
+        return this.#index[id];
     }
 
     get index() {
