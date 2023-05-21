@@ -7,6 +7,7 @@
 
   border: var(--window-border);
   border-radius: 10px;
+  box-shadow: 10px 10px 20px black;
 
   display: flex;
   flex-direction: column;

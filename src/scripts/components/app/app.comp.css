@@ -21,7 +21,5 @@
 
 .right {
     transform-origin: bottom right;
-    transform: rotateY(-10deg);
-
-    max-width: 350px;
+    transform: rotateY(-3.2deg);
 }
