@@ -15,9 +15,13 @@
 .left {
     transform-origin: bottom left;
     transform: rotateY(10deg);
+
+    max-width: 350px;
 }
 
 .right {
     transform-origin: bottom right;
     transform: rotateY(-10deg);
+
+    max-width: 350px;
 }
