@@ -1,17 +1,17 @@
 {
-	"name": "Python 3",
-	"image": "mcr.microsoft.com/devcontainers/python:3.11",
+	"name": "simple-server",
 	"features": {
 		"ghcr.io/devcontainers/features/node:1": {
 			"version": "lts"
-		}
+		},
+		"ghcr.io/devcontainers-contrib/features/lite-server:1": {}
 	},
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	"forwardPorts": [8000],
+	//"forwardPorts": [8000],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "python -m http.server --cgi 8000 --directory src/"
+	//"postCreateCommand": ""
 
 	// Configure tool-specific properties.
 	// "customizations": {},

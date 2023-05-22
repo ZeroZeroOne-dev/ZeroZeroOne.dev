@@ -12,9 +12,6 @@
 
   background-color: #202020;
 
-  transform-origin: bottom right;
-  transform: rotateY(-10deg);
-
   display: flex;
   flex-direction: column;
 }
