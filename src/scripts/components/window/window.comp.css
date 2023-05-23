@@ -8,7 +8,6 @@
 
   border: var(--window-border);
   border-radius: 10px;
-  box-shadow: 10px 10px 20px black;
 
   background-color: #202020;
 
@@ -38,5 +37,5 @@
 
 .body {
   flex-grow: 1;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
